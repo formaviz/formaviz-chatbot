@@ -18,7 +18,7 @@
   "reason": {
     "react-jsx": 2
   },
-  "bs-dependencies": ["reason-react", "bs-fetch", "@glennsl/bs-json", "bs-css"],
+  "bs-dependencies": ["reason-react", "bs-fetch", "@glennsl/bs-json", "bs-webapi"],
   "bs-dev-dependencies": ["@glennsl/bs-jest"],
   "warnings": {
     "error": "+101"

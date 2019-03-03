@@ -1,29 +1,48 @@
+open Reducer;
+
 module HeaderStyle = {
-  open Css;
+  let header_chatbot = {
+    ReactDOMRe.Style.make(
+      ~backgroundColor="#333333",
+      ~color="white",
+      ~display="flex",
+      ~alignItems="center",
+      ~justifyContent="space-between",
+      (),
+    )
+  };
 
-  let header_chatbot =
-    style([
-      backgroundColor(`hex("333333")),
-      color(white),
-      display(`flex),
-      alignItems(`center),
-      justifyContent(`spaceBetween),
-      zIndex(1),
-    ]);
+  let header_chatbot_title = {
+    ReactDOMRe.Style.make(
+      ~margin="1rem",
+      (),
+    )
+  };
 
-  let header_chatbot_title = style([margin(`rem(1.0))]);
-
-  let header_chatbot_exit =
-    style([margin(`rem(1.0)), backgroundColor(`transparent), color(white), border(`zero, `none, white)]);
+  let header_chatbot_exit ={
+    ReactDOMRe.Style.make(
+      ~margin="1rem",
+      ~backgroundColor="transparent",
+      ~color="white",
+      ~border="none",
+      (),
+    )
+  };
 };
 
+type ctx = {show: bool};
+
 let component = ReasonReact.statelessComponent("Header");
-let make = _children => {
+let make = (~ctx: ctx, ~appSend, _children) => {
   ...component,
   render: _self => {
-    <div className=HeaderStyle.header_chatbot>
-      <h2 className=HeaderStyle.header_chatbot_title> {ReasonReact.string("Chatbot")} </h2>
-      <button className=HeaderStyle.header_chatbot_exit> {ReasonReact.string("X")} </button>
+    <div style=HeaderStyle.header_chatbot onClick={ev => appSend(UpdateShow(!ctx.show))}>
+      <h2 style=HeaderStyle.header_chatbot_title> {ReasonReact.string("Chatbot")} </h2>
+      <button style=HeaderStyle.header_chatbot_exit> {
+        ctx.show ? 
+          <i className="fa fa-angle-down"></i> :
+          <i className="fa fa-angle-up"></i>
+      } </button>
     </div>;
   },
 };
