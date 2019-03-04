@@ -1,5 +1,6 @@
 open Reducer;
 open Webapi.Dom;
+open Element;
 
 module ConversationStyle = {
   let conversation = {
@@ -29,13 +30,12 @@ module ConversationStyle = {
 }
 
 let setSectionRef = (theRef, {ReasonReact.state}) => {
-  let foo: option(Dom.element) = ReactDOMRe._getElementById("foo");
+  let foo = Webapi.Dom.document |> Document.querySelector("#foo");
+
   switch foo {
+  | Some(a) =>  setScrollTop(a, scrollHeight(a) |> float_of_int);
   | None => Js.log("Nothing")
-  | Some(a) =>  Js.log(a);
   };
- 
-  //theRef##scrollIntoView({"block": "end", "behavior": "smooth"});
 }
 
 type ctx = {messages: list(message), isAuthenticated: bool};
@@ -50,11 +50,11 @@ let make = (~ctx: ctx, _children) => {
         <div style=ConversationStyle.no_connected_label>
           <p>
             {ReasonReact.string("Vous etes actuellement deconnecte, ")}
-            <a style=ConversationStyle.no_connected_link>
+            <a href="/login" style=ConversationStyle.no_connected_link>
               {ReasonReact.string("se connecter")}
             </a>
             {ReasonReact.string(" ou ")}
-            <a style=ConversationStyle.no_connected_link>
+            <a href="/register" style=ConversationStyle.no_connected_link>
               {ReasonReact.string("s'enregistrer")}
               </a>
           </p>
