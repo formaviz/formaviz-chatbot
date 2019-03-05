@@ -62,7 +62,11 @@ let make = (~ctx: ctx, ~appSend, _children) => {
         type_="submit" 
         style=InputStyle.send_button(ctx.isAuthenticated) 
         disabled={!ctx.isAuthenticated}> 
-          <i className="fa fa-arrow-circle-right" />
+          <i className="fa fa-arrow-circle-right" style={
+            ReactDOMRe.Style.make(
+              ~color="#273ab0",
+            ());
+          }/>
       </button>
     </form>;
   },

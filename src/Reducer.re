@@ -1,5 +1,3 @@
-
-
 type owner =
   | Bot
   | User;

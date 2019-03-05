@@ -30,7 +30,6 @@ let make = (~message: message, _children) => {
     <div className=style(message.owner)> 
       <span style= {
           ReactDOMRe.Style.make(
-            ~color="white",
             ~lineHeight="1.5",
             ()
           )

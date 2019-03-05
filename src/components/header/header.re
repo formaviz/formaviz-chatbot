@@ -3,11 +3,12 @@ open Reducer;
 module HeaderStyle = {
   let header_chatbot = {
     ReactDOMRe.Style.make(
-      ~backgroundColor="#333333",
+      ~backgroundColor="#273ab0",
       ~color="white",
       ~display="flex",
       ~alignItems="center",
       ~justifyContent="space-between",
+      ~cursor="pointer",
       (),
     )
   };
