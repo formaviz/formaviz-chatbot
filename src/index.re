@@ -42,7 +42,6 @@ let makePosition = pos =>
     )
   };
 
-module Chatbot = {
   let component = ReasonReact.reducerComponent("Chatbot");
   let make = (~isAuthenticated, ~position: position, _children) => {
     ...component,
@@ -61,21 +60,18 @@ module Chatbot = {
         </div>
       </div>,
   };
-};
 
-ReactDOMRe.renderToElementWithId(<Chatbot isAuthenticated=true position=BottomRight />, "main");
-
-/*[@bs.deriving abstract]
+[@bs.deriving abstract]
   type jsProps = {
-     isAuthenticated: boolean,
+     isAuthenticated: bool,
      position: position,
   };
 
-  let jsComponent =
+  let default =
     ReasonReact.wrapReasonForJs(~component, jsProps =>
       make(
         ~isAuthenticated=jsProps->isAuthenticatedGet,
         ~position=jsProps->positionGet,
         [||],
       )
-    );*/
+    );
