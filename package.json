@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "scripts": {
     "clean": "bsb -clean-world",
-    "build": "bsb -make-world && parcel build index.html",
-    "watch": "concurrently -k -n bsb,jest -c magenta,green,blue \"bsb -make-world -w\" \"jest --watch\" \"parcel watch index.html\"",
+    "build": "bsb -make-world && parcel build src/index.html",
+    "watch": "concurrently -k -n bsb,jest -c magenta,green,blue \"bsb -make-world -w\" \"jest --watch\" \"parcel watch src/index.html\"",
     "byte": "bsb -backend",
     "test": "npm run build && jest --coverage",
     "parcel": "parcel src/index.html",
