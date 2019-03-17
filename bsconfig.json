@@ -23,7 +23,7 @@
   "warnings": {
     "error": "+101"
   },
-  "namespace": false,
+  "namespace": true,
   "bsc-flags": ["-bs-super-errors"],
   "refmt": 3
 }
