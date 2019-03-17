@@ -1,16 +1,11 @@
 {
   "name": "formaviz-chatbot",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
-    "clean": "bsb -clean-world",
-    "build": "bsb -make-world && parcel build index.html",
-    "watch": "concurrently -k -n bsb,jest -c magenta,green,blue \"bsb -make-world -w\" \"jest --watch\" \"parcel watch index.html\"",
-    "byte": "bsb -backend",
-    "test": "npm run build && jest --coverage",
-    "parcel": "parcel src/index.html",
-    "webpack": "webpack -w",
-    "webpack:production": "NODE_ENV=production webpack",
-    "server": "webpack-dev-server"
+    "bs": "bsb -make-world",
+    "webpack": "webpack",
+    "webpack:watch": "webpack -w",
+    "bs:watch": "bsb -make-world -w"
   },
   "keywords": [
     "BuckleScript"
