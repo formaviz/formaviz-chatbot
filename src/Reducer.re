@@ -53,7 +53,7 @@ let reducer = (action, state) =>
 
         let _ = Js.Promise.(
           Fetch.fetchWithInit(
-            "http://localhost:1235/api",
+            "https://chatbotmiddleware.cleverapps.io/api",
             Fetch.RequestInit.make(
                 ~method_=Post,
                 ~body=Fetch.BodyInit.make(Js.Json.stringify(Js.Json.object_(payload))),

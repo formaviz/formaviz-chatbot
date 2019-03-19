@@ -22,7 +22,7 @@ module IndexStyle = {
 
 let makePosition = pos =>
   switch (pos) {
-  | BottomRight =>
+  | "BottomRight" =>
     ReactDOMRe.Style.make(
       ~position="absolute",
       ~bottom="0",
@@ -31,7 +31,7 @@ let makePosition = pos =>
       ~width="300px",
       (),
     )
-  | BottomLeft =>
+  | "BottomLeft" =>
     ReactDOMRe.Style.make(
       ~position="absolute",
       ~bottom="0",
@@ -40,10 +40,19 @@ let makePosition = pos =>
       ~width="300px",
       (),
     )
+    | _ =>  
+    ReactDOMRe.Style.make(
+    ~position="absolute",
+    ~bottom="0",
+    ~right="1rem",
+    ~boxShadow="0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)",
+    ~width="300px",
+    (),
+    )
   };
 
   let component = ReasonReact.reducerComponent("Chatbot");
-  let make = (~isAuthenticated, ~position: position, _children) => {
+  let make = (~isAuthenticated, ~position, _children) => {
     ...component,
     initialState: () => initialAppState,
     reducer,
@@ -64,7 +73,7 @@ let makePosition = pos =>
 [@bs.deriving abstract]
   type jsProps = {
      isAuthenticated: bool,
-     position: position,
+     position: string,
   };
 
   let default =
