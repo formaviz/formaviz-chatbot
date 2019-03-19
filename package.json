@@ -1,10 +1,10 @@
 {
   "name": "formaviz-chatbot",
-  "main": "dist/src.dbb414bd.js",
+  "main": "dist/bundle.js",
   "version": "0.1.4",
   "scripts": {
     "clean": "bsb -clean-world",
-    "build": "bsb -make-world && parcel build src/index.html",
+    "build": "bsb -make-world && parcel build src/index.bs.js -o bundle.js",
     "watch": "concurrently -k -n bsb,jest -c magenta,green,blue \"bsb -make-world -w\" \"jest --watch\" \"parcel watch src/index.html\"",
     "byte": "bsb -backend",
     "test": "npm run build && jest --coverage",
@@ -48,10 +48,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build"
+      "pre-commit": "rm -f dist/* && npm run clean && npm run build && git add ."
     }
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
   }
 }
