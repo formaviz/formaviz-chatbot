@@ -1,7 +1,7 @@
 {
   "name": "formaviz-chatbot",
   "main": "dist/bundle.js",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "scripts": {
     "clean": "bsb -clean-world",
     "build": "bsb -make-world && parcel build src/index.bs.js -o bundle.js",
