@@ -1,0 +1,54 @@
+.message-bot {
+	position: relative;
+	background: #273ab0;
+    border-radius: .4em;
+    padding: 1em;
+    margin-left: 1em;
+	margin-right: 4em;
+	margin-bottom: 1em;
+	color: white;
+}
+
+.message-bot:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 0.656em solid transparent;
+	border-right-color: #273ab0;
+	border-left: 0;
+	margin-top: -0.656em;
+	margin-left: -0.656em;
+}
+
+.message-user {
+	position: relative;
+	background: #fff;
+    border-radius: .4em;
+    padding: 1em;
+    margin-right: 1em;
+	margin-left: 4em;
+	margin-bottom: 1em;
+	color: black;
+}
+
+.message-user:after {
+	content: '';
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 0.656em solid transparent;
+	border-left-color: #fff;
+	border-right: 0;
+	margin-top: -0.656em;
+	margin-right: -0.656em;
+}
+
+* {
+    font-size: 100%;
+    font-family: Roboto;
+}
