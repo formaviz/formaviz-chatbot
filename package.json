@@ -1,5 +1,6 @@
 {
   "name": "formaviz-chatbot",
+  "main": "dist/src.dbb414bd.js",
   "version": "0.1.4",
   "scripts": {
     "clean": "bsb -clean-world",
@@ -38,9 +39,19 @@
     "bsb-js": "^1.1.7",
     "concurrently": "^4.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
     "parcel-bundler": "^1.11.0",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run build"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   }
 }
